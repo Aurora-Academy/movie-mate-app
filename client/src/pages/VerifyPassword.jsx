@@ -6,7 +6,7 @@ import { instance } from "../utils/axios";
 
 import Logo from "../assets/logo.png";
 
-const ForgetPassword = () => {
+const VerifyPassword = () => {
   const handleImageErr = (e) => {
     e.target.src = "https://pixlr.com/images/index/ai-image-generator-one.webp";
   };
@@ -25,15 +25,29 @@ const ForgetPassword = () => {
                 width="200px"
               />
             </div>
-            <h1 className="text-center">Forget Password</h1>
+            <h1 className="text-center">Verify Password</h1>
 
             <form>
               <div className="mb-3">
                 <label className="form-label">Email address</label>
-                <input type="email" className="form-control" />
+                <input
+                  type="email"
+                  className="form-control"
+                  disabled
+                  value="raktim@rumsan.com"
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Token</label>
+                <input type="text" className="form-control" />
+                <div className="form-text">Token is sent to email</div>
+              </div>
+              <div className="mb-3">
+                <label className="form-label">New Password</label>
+                <input type="text" className="form-control" />
               </div>
               <button type="submit" className="btn btn-primary">
-                Get Token
+                Reset Password
               </button>
             </form>
           </div>
@@ -53,4 +67,4 @@ const ForgetPassword = () => {
   );
 };
 
-export default ForgetPassword;
+export default VerifyPassword;

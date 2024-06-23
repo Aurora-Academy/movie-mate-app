@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { instance } from "../utils/axios";
+import { setToken } from "../utils/storage";
 
 import Logo from "../assets/logo.png";
 
+import { Notify } from "../components/Notify";
+
 const Login = () => {
+  const navigate = useNavigate();
   const [payload, setPayload] = useState({
     email: "",
     password: "",
   });
+  const [msg, setMsg] = useState("");
+  const [error, setError] = useState("");
 
   const handleImageErr = (e) => {
     e.target.src = "https://pixlr.com/images/index/ai-image-generator-one.webp";
@@ -17,12 +24,29 @@ const Login = () => {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
-      const result = await instance.post("/users/login", payload);
-      console.log({ result });
+      const { data } = await instance.post("/users/login", payload);
+      const { data: token, msg } = data;
+      setMsg(msg);
+      setToken("access_token", token);
+      navigate("/admin");
     } catch (err) {
-      console.log(err);
+      const errMsg =
+        err?.response?.data?.msg || "Something went wrong. Try again!";
+      setError(errMsg);
+    } finally {
+      setTimeout(() => {
+        setError("");
+        setMsg("");
+      }, 3000);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      navigate("/admin", { replace: true });
+    }
+  }, [navigate]);
 
   return (
     <div>
@@ -39,6 +63,8 @@ const Login = () => {
               />
             </div>
             <h1 className="text-center">Login</h1>
+            {error && <Notify message={error} />}
+            {msg && <Notify variant="success" message={msg} />}
             <form onSubmit={(e) => handleLogin(e)}>
               <div className="mb-3">
                 <label className="form-label">Email address</label>
