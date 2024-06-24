@@ -132,3 +132,5 @@ dist
 .DS_Store
 
 server/public/upload/movies/*
+server/public/upload/users/*
+

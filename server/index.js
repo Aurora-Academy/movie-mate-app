@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
@@ -17,6 +18,8 @@ mongoose
 const app = express();
 const PORT = Number(process.env.PORT);
 // I can parse request body as json
+
+app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/assets", express.static("public"));

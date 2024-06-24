@@ -10,6 +10,7 @@ const movieSchema = new Schema(
     poster: { type: String, required: true },
     releaseDate: { type: Date, required: true, default: Date.now },
     endDate: { type: Date, required: true },
+    rating: { type: Number, default: 0 },
     seats: { type: Number, required: true, default: 0 },
     price: { type: Number, required: true, default: 0 },
     createdBy: { type: ObjectId, ref: "User" },

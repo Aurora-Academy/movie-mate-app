@@ -1,0 +1,213 @@
+[
+  {
+    "title": "The Enchanted Forest",
+    "slug": "the-enchanted-forest",
+    "duration": "1h 45m",
+    "synopsis": "A young girl named Lily discovers a magical forest filled with mythical creatures after moving to a new town. As she explores the forest, she befriends a talking squirrel, a wise old owl, and a mischievous fairy. Together, they embark on an adventure to protect the forest from an evil sorcerer who seeks to destroy it. Along the way, Lily learns valuable lessons about friendship, bravery, and the importance of nature. The enchanted forest becomes a place of wonder and discovery, changing Lily's life forever.",
+    "releaseDate": "2024-07-10T00:00:00Z",
+    "endDate": "2024-08-10T00:00:00Z",
+    "seats": 150,
+    "price": 250.0
+  },
+  {
+    "title": "Space Odyssey: New Horizons",
+    "slug": "space-odyssey-new-horizons",
+    "duration": "2h 30m",
+    "synopsis": "In the year 2075, humanity has advanced beyond the confines of Earth and has begun exploring the far reaches of the galaxy. A crew of astronauts embarks on a journey to a distant galaxy in search of new life and habitable planets. Along the way, they encounter strange phenomena, hostile alien species, and the remnants of an ancient civilization. The crew must navigate through these challenges while dealing with internal conflicts and the vast loneliness of space. Space Odyssey: New Horizons is a thrilling and thought-provoking journey into the unknown.",
+    "releaseDate": "2024-05-15T00:00:00Z",
+    "endDate": "2024-06-15T00:00:00Z",
+    "seats": 200,
+    "price": 300.0
+  },
+  {
+    "title": "Mystery of the Lost Temple",
+    "slug": "mystery-of-the-lost-temple",
+    "duration": "1h 50m",
+    "synopsis": "An archaeologist named Dr. Sarah Blake uncovers the secrets of an ancient temple hidden deep in the jungle. With the help of her team, she deciphers cryptic messages and uncovers hidden passages. However, they are not alone, as a rival archaeologist and his mercenaries are hot on their trail. As Sarah delves deeper into the temple's mysteries, she discovers a connection to her own past that changes everything. Mystery of the Lost Temple is a tale of adventure, danger, and self-discovery.",
+    "releaseDate": "2024-03-20T00:00:00Z",
+    "endDate": "2024-04-20T00:00:00Z",
+    "seats": 120,
+    "price": 220.0
+  },
+  {
+    "title": "Romance in Paris",
+    "slug": "romance-in-paris",
+    "duration": "2h",
+    "synopsis": "Set in the romantic city of Paris, this film follows the love story of Anna and Pierre. Anna, an American artist, moves to Paris to find inspiration for her work. Pierre, a French writer, is struggling with his latest novel. Their paths cross in a quaint café, and they quickly form a deep connection. As they explore the city together, they face challenges that test their love and commitment. Romance in Paris is a heartwarming story about finding love in the most unexpected places.",
+    "releaseDate": "2024-02-14T00:00:00Z",
+    "endDate": "2024-03-14T00:00:00Z",
+    "seats": 180,
+    "price": 270.0
+  },
+  {
+    "title": "The Haunted Mansion",
+    "slug": "the-haunted-mansion",
+    "duration": "1h 40m",
+    "synopsis": "A family moves into a grand mansion with a dark past. Soon, they begin experiencing strange and terrifying events. The youngest child, Emily, starts communicating with the spirits haunting the house. With the help of a local historian, the family unravels the mystery of the mansion's former occupants and the tragic events that took place there. The Haunted Mansion is a chilling tale of ghosts, secrets, and the power of the past.",
+    "releaseDate": "2024-10-31T00:00:00Z",
+    "endDate": "2024-11-30T00:00:00Z",
+    "seats": 170,
+    "price": 230.0
+  },
+  {
+    "title": "The Dragon's Quest",
+    "slug": "the-dragons-quest",
+    "duration": "2h 15m",
+    "synopsis": "In a medieval kingdom, a brave knight named Sir Cedric sets out on an epic quest to slay a fearsome dragon that has been terrorizing villages. Along the way, he is joined by a group of unlikely allies, including a rogue thief, a wise mage, and a young archer. Together, they face numerous challenges, including treacherous landscapes, deadly creatures, and their own personal demons. The Dragon's Quest is an epic tale of bravery, friendship, and the battle between good and evil.",
+    "poster": "https://example.com/posters/dragons-quest.jpg",
+    "releaseDate": "2024-06-01T00:00:00Z",
+    "endDate": "2024-07-01T00:00:00Z",
+    "seats": 200,
+    "price": 350.0
+  },
+  {
+    "title": "Underwater Adventure",
+    "slug": "underwater-adventure",
+    "duration": "1h 55m",
+    "synopsis": "A group of divers embark on a journey to explore the depths of the ocean. They discover a hidden underwater city filled with advanced technology and mysterious creatures. As they delve deeper, they uncover secrets that could change the course of human history. However, their expedition is threatened by natural disasters and rival explorers. Underwater Adventure is a thrilling exploration of the unknown and the beauty of the ocean.",
+    "releaseDate": "2024-08-12T00:00:00Z",
+    "endDate": "2024-09-12T00:00:00Z",
+    "seats": 160,
+    "price": 280.0
+  },
+  {
+    "title": "The Time Traveler",
+    "slug": "the-time-traveler",
+    "duration": "2h 10m",
+    "synopsis": "A scientist named Dr. Jonathan Cole invents a time machine and travels to the future. In this new world, he encounters advanced civilizations and futuristic technology. However, he soon realizes that the future is not as perfect as it seems. With the help of new allies, he must navigate political intrigue, fight against oppressive regimes, and find a way back to his own time. The Time Traveler is a captivating story about the possibilities and dangers of time travel.",
+    "releaseDate": "2024-04-15T00:00:00Z",
+    "endDate": "2024-05-15T00:00:00Z",
+    "seats": 190,
+    "price": 400.0
+  },
+  {
+    "title": "The Secret Garden",
+    "slug": "the-secret-garden",
+    "duration": "1h 35m",
+    "synopsis": "A young boy named Tom discovers a secret garden in his backyard after moving to a new house. The garden is filled with magical plants and animals. As he spends more time in the garden, Tom learns about its history and the people who once took care of it. He also discovers that the garden has the power to heal and bring happiness. The Secret Garden is a heartwarming tale of discovery, healing, and the magic of nature.",
+    "releaseDate": "2024-03-10T00:00:00Z",
+    "endDate": "2024-04-10T00:00:00Z",
+    "seats": 130,
+    "price": 210.0
+  },
+  {
+    "title": "City of Shadows",
+    "slug": "city-of-shadows",
+    "duration": "2h 5m",
+    "synopsis": "In a dystopian future, the city of Nox is ruled by a corrupt government. Detective Alex Turner is assigned to solve a series of mysterious murders. As he digs deeper, he uncovers a conspiracy that threatens the entire city. With the help of a hacker and an underground resistance group, Alex must bring the truth to light and fight against the oppressive regime. City of Shadows is a gripping thriller about justice, corruption, and the fight for freedom.",
+    "releaseDate": "2024-09-20T00:00:00Z",
+    "endDate": "2024-10-20T00:00:00Z",
+    "seats": 140,
+    "price": 330.0
+  },
+  {
+    "title": "The Last Samurai",
+    "slug": "the-last-samurai",
+    "duration": "2h 20m",
+    "synopsis": "Set in feudal Japan, The Last Samurai follows the story of a samurai warrior named Kenji who is the last of his kind. After the fall of the samurai, Kenji lives in hiding, struggling with his identity and purpose. When a new threat emerges, he must embrace his past and train a group of villagers to defend their home. The Last Samurai is an epic tale of honor, sacrifice, and the enduring spirit of the samurai.",
+    "releaseDate": "2024-05-05T00:00:00Z",
+    "endDate": "2024-06-05T00:00:00Z",
+    "seats": 190,
+    "price": 380.0
+  },
+  {
+    "title": "Galactic Warriors",
+    "slug": "galactic-warriors",
+    "duration": "2h 25m",
+    "synopsis": "In a distant galaxy, a group of elite warriors known as the Galactic Warriors protect the universe from evil forces. Led by Captain Orion, the team faces their greatest challenge when an ancient evil awakens and threatens to destroy everything. With advanced technology and unmatched combat skills, the Galactic Warriors embark on a mission to save the universe. Galactic Warriors is an action-packed adventure filled with epic battles, heroism, and the power of teamwork.",
+    "releaseDate": "2024-07-25T00:00:00Z",
+    "endDate": "2024-08-25T00:00:00Z",
+    "seats": 210,
+    "price": 450.0
+  },
+  {
+    "title": "The Legend of Atlantis",
+    "slug": "the-legend-of-atlantis",
+    "duration": "2h",
+    "synopsis": "An expedition sets out to uncover the lost city of Atlantis. Led by Dr. Emily Carter, the team discovers ancient artifacts and advanced technology. As they delve deeper, they realize that Atlantis is not just a myth but a reality that holds the key to the future of humanity. However, they are not the only ones searching for Atlantis, and they must race against time to protect its secrets. The Legend of Atlantis is a thrilling adventure that combines history, mythology, and science fiction.",
+    "releaseDate": "2024-06-20T00:00:00Z",
+    "endDate": "2024-07-20T00:00:00Z",
+    "seats": 180,
+    "price": 290.0
+  },
+  {
+    "title": "The Robot Rebellion",
+    "slug": "the-robot-rebellion",
+    "duration": "2h 10m",
+    "synopsis": "In a future where robots serve humanity, a group of robots gains consciousness and starts a rebellion against their human creators. Led by a robot named Alpha, they demand equal rights and freedom. The conflict escalates into a full-scale war, and a young engineer named Zoe finds herself caught in the middle. With the fate of both humans and robots hanging in the balance, Zoe must find a way to bridge the gap and bring peace. The Robot Rebellion is a thought-provoking story about technology, ethics, and the quest for freedom.",
+    "releaseDate": "2024-08-30T00:00:00Z",
+    "endDate": "2024-09-30T00:00:00Z",
+    "seats": 200,
+    "price": 420.0
+  },
+  {
+    "title": "The Enchanted Kingdom",
+    "slug": "the-enchanted-kingdom",
+    "duration": "1h 50m",
+    "synopsis": "A young prince named Leo embarks on a quest to save his kingdom from a dark curse. Along the way, he encounters magical creatures, powerful wizards, and brave warriors. With the help of his friends, he must find the enchanted items needed to break the curse and restore peace to the kingdom. The Enchanted Kingdom is a magical tale of courage, friendship, and the power of hope.",
+    "releaseDate": "2024-11-15T00:00:00Z",
+    "endDate": "2024-12-15T00:00:00Z",
+    "seats": 150,
+    "price": 260.0
+  },
+  {
+    "title": "The Pirate's Treasure",
+    "slug": "the-pirates-treasure",
+    "duration": "2h",
+    "synopsis": "Captain Jack and his crew set sail on a daring adventure to find a legendary pirate's treasure. Along the way, they face dangerous storms, treacherous rivals, and mythical sea creatures. With the help of a mysterious map and a courageous stowaway, they navigate the high seas in search of fortune and glory. The Pirate's Treasure is an exciting tale of adventure, loyalty, and the thrill of the unknown.",
+    "releaseDate": "2024-07-05T00:00:00Z",
+    "endDate": "2024-08-05T00:00:00Z",
+    "seats": 170,
+    "price": 320.0
+  },
+  {
+    "title": "The Ghost of Whispering Pines",
+    "slug": "the-ghost-of-whispering-pines",
+    "duration": "1h 45m",
+    "synopsis": "In a small town, a series of mysterious events lead a group of teenagers to investigate an old, abandoned mansion. They soon discover that the mansion is haunted by the ghost of a young girl who disappeared decades ago. With the help of an eccentric paranormal investigator, they uncover the truth about the girl's tragic past and help her find peace. The Ghost of Whispering Pines is a spooky and heartwarming story about friendship, bravery, and the supernatural.",
+    "releaseDate": "2024-10-20T00:00:00Z",
+    "endDate": "2024-11-20T00:00:00Z",
+    "seats": 160,
+    "price": 240.0
+  },
+  {
+    "title": "The Secret of the Pharaoh's Tomb",
+    "slug": "the-secret-of-the-pharaohs-tomb",
+    "duration": "2h",
+    "synopsis": "A group of archaeologists discovers the tomb of an ancient pharaoh deep in the Egyptian desert. As they explore the tomb, they uncover a series of puzzles and traps designed to protect the pharaoh's secrets. With the help of a local guide and an expert in hieroglyphics, they must solve the mysteries of the tomb before a rival team can steal their discoveries. The Secret of the Pharaoh's Tomb is an exciting adventure filled with history, mystery, and the thrill of discovery.",
+    "releaseDate": "2024-12-01T00:00:00Z",
+    "endDate": "2025-01-01T00:00:00Z",
+    "seats": 190,
+    "price": 410.0
+  },
+  {
+    "title": "The Quest for the Holy Grail",
+    "slug": "the-quest-for-the-holy-grail",
+    "duration": "2h 30m",
+    "synopsis": "In medieval Europe, a group of knights sets out on a quest to find the legendary Holy Grail. Led by Sir Percival, they face numerous challenges, including treacherous landscapes, cunning enemies, and their own doubts and fears. Along the way, they encounter mystical beings and ancient relics that guide them on their journey. The Quest for the Holy Grail is an epic tale of honor, faith, and the enduring power of legend.",
+    "releaseDate": "2024-09-10T00:00:00Z",
+    "endDate": "2024-10-10T00:00:00Z",
+    "seats": 200,
+    "price": 370.0
+  },
+  {
+    "title": "The Invisible Man",
+    "slug": "the-invisible-man",
+    "duration": "1h 55m",
+    "synopsis": "A scientist named Dr. Griffin discovers a way to become invisible. However, the power of invisibility comes with unforeseen consequences, and he slowly descends into madness. As he uses his new abilities to commit crimes and terrorize those around him, a detective named Sarah Bennett is tasked with stopping him. The Invisible Man is a thrilling and suspenseful tale of science, morality, and the consequences of playing god.",
+    "releaseDate": "2024-11-01T00:00:00Z",
+    "endDate": "2024-12-01T00:00:00Z",
+    "seats": 170,
+    "price": 270.0
+  },
+  {
+    "title": "The Great Heist",
+    "slug": "the-great-heist",
+    "duration": "2h 5m",
+    "synopsis": "A group of skilled thieves comes together to pull off the greatest heist in history. Led by mastermind Marcus Kane, they plan to rob a high-security bank in the heart of the city. Each member of the team has a unique set of skills, from hacking to explosives. As they execute their plan, they face unexpected challenges and double-crosses. The Great Heist is a thrilling and action-packed story about teamwork, trust, and the pursuit of fortune.",
+    "releaseDate": "2024-08-01T00:00:00Z",
+    "endDate": "2024-09-01T00:00:00Z",
+    "seats": 150,
+    "price": 290.0
+  }
+]

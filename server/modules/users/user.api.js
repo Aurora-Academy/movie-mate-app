@@ -8,7 +8,7 @@ const { validator } = require("./user.validator");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/upload");
+    cb(null, "public/upload/users");
   },
   filename: function (req, file, cb) {
     cb(
@@ -35,8 +35,8 @@ router.post(
       if (req.file) {
         req.body.profile = req.file.path;
       }
-      const result = await userController.create(req.body);
-      res.json({ msg: "User Registered Successfully", data: result });
+      await userController.create(req.body);
+      res.json({ msg: "User Registered Successfully" });
     } catch (e) {
       next(e);
     }

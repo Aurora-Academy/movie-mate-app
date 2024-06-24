@@ -24,7 +24,9 @@ const upload = multer({ storage: storage });
 
 router.get("/", async (req, res, next) => {
   try {
-    const result = await movieController.list();
+    const { page, limit, title } = req.query;
+    const search = { title };
+    const result = await movieController.list({ page, limit, search });
     res.json({ msg: "All movies list", data: result });
   } catch (e) {
     next(e);

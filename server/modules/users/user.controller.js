@@ -27,6 +27,8 @@ const create = async (payload) => {
   const duplicateEmail = await userModel.findOne({ email });
   if (duplicateEmail) throw new Error("Email already in use");
   payload.password = genHash(password);
+  payload.isEmailVerified =
+    process.env.EMAIL_VERIFICATION_REQUIRED === "false" ? true : false;
   const result = await userModel.create(payload);
   //call the nodemailer
   eventEmitter.emit("signup", email);

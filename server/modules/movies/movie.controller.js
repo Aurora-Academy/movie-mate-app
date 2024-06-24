@@ -13,8 +13,63 @@ const create = async (payload) => {
 };
 
 // movie list (list)
-const list = () => {
-  return movieModel.find();
+const list = async ({ page = 1, limit = 10, search }) => {
+  const query = [];
+  // Search
+  if (search?.title) {
+    query.push({
+      $match: {
+        title: new RegExp(search?.title, "gi"),
+      },
+    });
+  }
+  // Sort
+  query.push({
+    $sort: {
+      createdAt: 1,
+    },
+  });
+  // Pagination
+  query.push(
+    {
+      $facet: {
+        metadata: [
+          {
+            $count: "total",
+          },
+        ],
+        data: [
+          {
+            $skip: (+page - 1) * +limit,
+          },
+          {
+            $limit: +limit,
+          },
+        ],
+      },
+    },
+    {
+      $addFields: {
+        total: {
+          $arrayElemAt: ["$metadata.total", 0],
+        },
+      },
+    },
+    {
+      $project: {
+        metadata: 0,
+        "data.createdBy": 0,
+        "data._id": 0,
+      },
+    }
+  );
+  const result = await movieModel.aggregate(query);
+  return {
+    total: result[0]?.total || 0,
+    movies: result[0]?.data,
+    page: +page,
+    limit: +limit,
+  };
 };
 
 // get one movie (getById)
