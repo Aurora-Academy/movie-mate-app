@@ -10,19 +10,35 @@ import Dashboard from "./pages/admin/Dashboard";
 import ForgetPassword from "./pages/ForgetPassword";
 import VerifyPassword from "./pages/VerifyPassword";
 import VerifyEmail from "./pages/VerifyEmail";
+// Layouts
+import UserLayout from "./layouts/UserLayout";
+import AdminLayout from "./layouts/AdminLayout";
+// User Pages
+import Home from "./pages/user/Home";
+import MovieDetail from "./pages/user/MovieDetail";
+import Cart from "./pages/user/Cart";
+import Order from "./pages/user/Order";
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/forget-password" element={<ForgetPassword />}></Route>
-        <Route path="/verify-password" element={<VerifyPassword />}></Route>
-        <Route path="/verify-email" element={<VerifyEmail />}></Route>
+        {/* General Routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/verify-password" element={<VerifyPassword />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
+        {/* User Routes */}
+        <Route path="/" element={<UserLayout />}>
+          <Route index element={<Home />} />
+          <Route path="movies/:slug" element={<MovieDetail />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="order" element={<Order />} />
+        </Route>
 
-        <Route path="/"></Route>
-        <Route path="/admin">
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
         </Route>
         <Route path="*" element={<ErrorPage />}></Route>
