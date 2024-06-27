@@ -11,7 +11,11 @@ import { BiLogInCircle } from "react-icons/bi";
 import { FaCartArrowDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 const UserNavbar = () => {
+  const { quantity } = useSelector((state) => state.cart);
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -38,7 +42,7 @@ const UserNavbar = () => {
                 <Link className="nav-link" to="/cart">
                   <span className="badge d-flex align-items-center p-1 pe-2 text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-pill">
                     <FaCartArrowDown size="1.8em" color="maroon" />
-                    &nbsp;0
+                    &nbsp;{quantity}
                   </span>
                 </Link>
               </ButtonGroup>

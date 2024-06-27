@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import MovieServices from "../services/movies";
 
 export const useMovies = () => {
@@ -10,15 +10,15 @@ export const useMovies = () => {
   const [loading, setLoading] = useState(false);
 
   // Admin Movies List Page, User side Home page
-  const getAllMovies = async (limit, page, title) => {
+  const getAllMovies = useCallback(async ({ limit, page, title }) => {
     try {
       setLoading(true);
       const data = await MovieServices.list(limit, page, title);
       setData(data.data);
-      setMsg(data.data.msg);
-      return data.data;
+      setMsg(data?.data?.msg);
+      return data?.data;
     } catch (err) {
-      const errMsg = err.response.data.msg || "Something went wrong";
+      const errMsg = err?.response?.data?.msg || "Something went wrong";
       setError(errMsg);
     } finally {
       setLoading(false);
@@ -27,14 +27,14 @@ export const useMovies = () => {
         setMsg("");
       }, 2000);
     }
-  };
+  }, []);
 
   // Admin Movies Movie Detail Page, User side Movie Detail
-  const getBySlug = async (slug) => {
+  const getBySlug = useCallback(async (slug) => {
     try {
       setLoading(true);
       const result = await MovieServices.getBySlug(slug);
-      setMovie(result.data);
+      setMovie(result.data.data);
       setMsg(result.data.msg);
       return result.data.data;
     } catch (err) {
@@ -47,7 +47,7 @@ export const useMovies = () => {
         setMsg("");
       }, 2000);
     }
-  };
+  }, []);
 
   return { data, movie, error, msg, loading, getAllMovies, getBySlug };
 };
