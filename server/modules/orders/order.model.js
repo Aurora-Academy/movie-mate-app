@@ -5,6 +5,8 @@ const orderSchema = new Schema(
   {
     id: { type: String, unique: true, required: true },
     buyer: { type: ObjectId, ref: "User", required: true },
+    name: String,
+    email: String,
     total: { type: Number, required: true },
     products: [
       {

@@ -59,7 +59,6 @@ const list = async ({ page = 1, limit = 10, search }) => {
       $project: {
         metadata: 0,
         "data.createdBy": 0,
-        "data._id": 0,
       },
     }
   );

@@ -30,11 +30,32 @@ const cartSlice = createSlice({
         (item) => item.slug !== action.payload
       );
       state.cart = newItems;
-      state.quantity = newItems.reduce((acc, obj) => acc + obj.seats, 0);
+      state.quantity = newItems.reduce((acc, obj) => acc + obj.quantity, 0);
     },
-    increaseQuantity: () => {},
-    decreaseQuantity: () => {},
-    removeAll: () => {},
+    increaseQuantity: (state, action) => {
+      const existingItem = state.cart.find(
+        (item) => item?.slug === action?.payload?.slug
+      );
+      if (existingItem && existingItem?.quantity < action?.payload?.seats) {
+        existingItem.quantity++;
+        state.quantity++;
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const existingItem = state.cart.find(
+        (item) => item?.slug === action?.payload?.slug
+      );
+      if (existingItem.quantity === 1) {
+        return;
+      } else {
+        existingItem.quantity--;
+        state.quantity--;
+      }
+    },
+    removeAll: (state) => {
+      state.cart = [];
+      state.quantity = 0;
+    },
   },
 });
 

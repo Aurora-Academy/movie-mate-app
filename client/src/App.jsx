@@ -17,7 +17,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import Home from "./pages/user/Home";
 import MovieDetail from "./pages/user/MovieDetail";
 import Cart from "./pages/user/Cart";
-import Order from "./pages/user/Order";
+import Checkout from "./pages/user/Checkout";
 
 const App = () => {
   return (
@@ -34,9 +34,11 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="movies/:slug" element={<MovieDetail />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="order" element={<Order />} />
         </Route>
-
+        {/* User Routes for checkout (login)*/}
+        <Route path="/" element={<UserLayout />}>
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
