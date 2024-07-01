@@ -1,5 +1,6 @@
 import "./Home.css";
 import { useCallback, useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { IoIosBasket } from "react-icons/io";
 
@@ -7,7 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../slices/cartSlice";
 
 import { useMovies } from "../../hooks/useMovies";
-import { Form } from "react-bootstrap";
+
+import Paginate from "../../components/Paginate";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -131,6 +133,15 @@ const Home = () => {
               <>No movies</>
             )}
           </div>
+          {data?.data?.total && (
+            <Paginate
+              total={data?.data?.total}
+              limit={limit}
+              currentPage={page}
+              setCurrentPage={setPage}
+              setLimit={setLimit}
+            />
+          )}
         </div>
       </div>
     </>
