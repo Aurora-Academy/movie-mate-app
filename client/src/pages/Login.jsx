@@ -25,10 +25,19 @@ const Login = () => {
     try {
       e.preventDefault();
       const { data } = await instance.post("/users/login", payload);
-      const { data: token, msg } = data;
+      const { data: userInfo, msg } = data;
       setMsg(msg);
-      setToken("access_token", token);
-      navigate("/admin");
+      setToken("access_token", userInfo?.token);
+      setToken("currentUser", {
+        name: userInfo?.name,
+        email: userInfo?.email,
+        id: userInfo?.id,
+      });
+      if (localStorage.getItem("redirectUrl")) {
+        navigate(localStorage.getItem("redirectUrl"));
+      } else {
+        navigate("/admin");
+      }
     } catch (err) {
       const errMsg =
         err?.response?.data?.msg || "Something went wrong. Try again!";

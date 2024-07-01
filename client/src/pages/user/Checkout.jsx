@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
+
+import { NotifyWithLink } from "../../components/Notify";
 
 const Checkout = () => {
   const [payload, setPayload] = useState({
@@ -10,6 +12,8 @@ const Checkout = () => {
     email: "",
   });
   const { cart } = useSelector((state) => state.cart);
+
+  const userInfo = JSON.parse(localStorage.getItem("currentUser"));
 
   const totalAmount = () =>
     cart.reduce((acc, obj) => acc + obj.quantity * obj.price, 0);
@@ -31,12 +35,24 @@ const Checkout = () => {
     console.log({ rest });
     // send to the ORDER API
   };
+
+  useEffect(() => {
+    if (userInfo?.id) {
+      localStorage.removeItem("redirectUrl");
+    }
+  }, [userInfo?.id]);
   return (
     <div className="container">
       <div className="py-5 text-center">
         <h2>Checkout</h2>
       </div>
-
+      {!localStorage.getItem("access_token") && !userInfo && (
+        <NotifyWithLink
+          message={"Please Login to buy the tickets"}
+          link="/checkout"
+          forward={"/login"}
+        />
+      )}
       <div className="row">
         <div className="col-md-4 order-md-2 mb-4">
           <h4 className="d-flex justify-content-between align-items-center mb-3">
@@ -172,7 +188,11 @@ const Checkout = () => {
               </div>
             </div>
             <hr className="mb-4" />
-            <button className="btn btn-primary btn-lg btn-block" type="submit">
+            <button
+              className="btn btn-primary btn-lg btn-block"
+              type="submit"
+              disabled={!userInfo}
+            >
               Continue to checkout
             </button>
           </form>
