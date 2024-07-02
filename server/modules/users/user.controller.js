@@ -49,6 +49,7 @@ const login = async (payload) => {
   const tokenPayload = {
     name: user?.name,
     email: user?.email,
+    roles: user?.roles,
   };
   const token = generateToken(tokenPayload);
   if (!token) throw new Error("Something went wrong");

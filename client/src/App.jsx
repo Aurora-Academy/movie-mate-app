@@ -19,6 +19,9 @@ import MovieDetail from "./pages/user/MovieDetail";
 import Cart from "./pages/user/Cart";
 import Checkout from "./pages/user/Checkout";
 
+// Routing check
+import PrivateRoute from "./components/PrivateRoute";
+
 const App = () => {
   return (
     <>
@@ -41,7 +44,47 @@ const App = () => {
         </Route>
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<PrivateRoute component={<Dashboard />} />} />
+          <Route
+            path="orders"
+            element={
+              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+            }
+          />
+          <Route
+            path="orders/:id"
+            element={
+              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+            }
+          />
+          <Route
+            path="movies"
+            element={
+              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+            }
+          />
+          <Route
+            path="movies/:id"
+            element={
+              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+            }
+          />
+          <Route
+            path="users"
+            element={
+              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+            }
+          />
+          <Route
+            path="users/:id"
+            element={
+              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+            }
+          />
+          <Route
+            path="profile"
+            element={<PrivateRoute component={<Dashboard />} />}
+          />
         </Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>

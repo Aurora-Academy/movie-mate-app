@@ -18,7 +18,10 @@ router.get("/", secure(), async (req, res, next) => {
 router.post("/", secure(), async (req, res, next) => {
   try {
     const result = await orderController.create(req.body);
-    res.json({ msg: "Created one order", data: result });
+    res.json({
+      msg: "Order created Successfully. We will reach out to you soon.",
+      data: result,
+    });
   } catch (e) {
     next(e);
   }

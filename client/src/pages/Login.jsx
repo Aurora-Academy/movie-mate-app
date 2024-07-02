@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { instance } from "../utils/axios";
-import { setToken } from "../utils/storage";
+import { setToken, setCurrentUser } from "../utils/storage";
 
 import Logo from "../assets/logo.png";
 
@@ -28,11 +28,7 @@ const Login = () => {
       const { data: userInfo, msg } = data;
       setMsg(msg);
       setToken("access_token", userInfo?.token);
-      setToken("currentUser", {
-        name: userInfo?.name,
-        email: userInfo?.email,
-        id: userInfo?.id,
-      });
+      setCurrentUser(userInfo?.id);
       if (localStorage.getItem("redirectUrl")) {
         navigate(localStorage.getItem("redirectUrl"));
       } else {
@@ -56,7 +52,6 @@ const Login = () => {
       navigate("/admin", { replace: true });
     }
   }, [navigate]);
-
   return (
     <div>
       <div className="flex d-flex justify-content-center align-items-center vh-100">

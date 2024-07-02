@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getToken } from "../../utils/storage";
+import { useNavigate } from "react-router-dom";
+import { removeAll } from "../../slices/cartSlice";
 
-import { NotifyWithLink } from "../../components/Notify";
+import { Notify, NotifyWithLink } from "../../components/Notify";
+import OrderServices from "../../services/orders";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [payload, setPayload] = useState({
     type: "",
     firstName: "",
     lastName: "",
     email: "",
   });
+  const [msg, setMsg] = useState("");
+
   const { cart } = useSelector((state) => state.cart);
 
   const userInfo = JSON.parse(localStorage.getItem("currentUser"));
@@ -18,22 +26,31 @@ const Checkout = () => {
   const totalAmount = () =>
     cart.reduce((acc, obj) => acc + obj.quantity * obj.price, 0);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const { firstName, lastName, ...rest } = payload;
-    rest.name = firstName.concat(" ", lastName);
-    rest.products = cart.map((item) => {
-      return {
-        quantity: item?.quantity,
-        price: item?.price,
-        movie: item?._id,
-        amount: item?.price * item?.quantity,
-      };
-    });
-    rest.buyer = "";
-    rest.total = totalAmount();
-    console.log({ rest });
-    // send to the ORDER API
+    try {
+      const { firstName, lastName, ...rest } = payload;
+      rest.name = firstName.concat(" ", lastName);
+      rest.products = cart.map((item) => {
+        return {
+          quantity: item?.quantity,
+          price: item?.price,
+          movie: item?._id,
+          amount: item?.price * item?.quantity,
+        };
+      });
+      rest.buyer = JSON.parse(getToken("currentUser"))?.id || "";
+      rest.total = totalAmount();
+      // send to the ORDER API
+      const { data } = await OrderServices.create(rest);
+      setMsg(data.msg);
+      dispatch(removeAll());
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (e) {
+      setMsg("Something went wrong. Try again later.");
+    }
   };
 
   useEffect(() => {
@@ -46,6 +63,7 @@ const Checkout = () => {
       <div className="py-5 text-center">
         <h2>Checkout</h2>
       </div>
+      {msg && <Notify message={msg} variant="success" />}
       {!localStorage.getItem("access_token") && !userInfo && (
         <NotifyWithLink
           message={"Please Login to buy the tickets"}
@@ -163,7 +181,7 @@ const Checkout = () => {
                   className="form-check-input"
                   type="radio"
                   name="payRadios"
-                  value="online"
+                  value="ONLINE"
                   onChange={(e) =>
                     setPayload((prev) => {
                       return { ...prev, type: e.target.value };
@@ -177,7 +195,7 @@ const Checkout = () => {
                   className="form-check-input"
                   type="radio"
                   name="payRadios"
-                  value="cod"
+                  value="COD"
                   onChange={(e) =>
                     setPayload((prev) => {
                       return { ...prev, type: e.target.value };
