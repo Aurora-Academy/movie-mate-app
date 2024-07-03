@@ -4,6 +4,7 @@ const { secure } = require("../../utils/secure");
 
 router.get("/", secure(), async (req, res, next) => {
   try {
+    console.log("Here");
     const { page, limit, showAll } = req.query;
     const search = {
       id: showAll && req.isAdmin ? "" : req.currentUser,

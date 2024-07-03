@@ -3,10 +3,17 @@ import { instance } from "../utils/axios";
 import { APIs } from "../constants";
 import { getToken } from "../utils/storage";
 
-// User Routes
-const list = (limit, page, title) => {
+const list = (limit, page) => {
+  const isAdmin =
+    JSON.parse(localStorage.getItem("currentUser"))?.roles.includes("admin") ||
+    false;
   return instance.get(
-    `${APIs.ORDERS}?limit=${limit}&page=${page}&title=${title}`
+    `${APIs.ORDERS}?limit=${limit}&page=${page}&showAll=${isAdmin}`,
+    {
+      headers: {
+        access_token: getToken("access_token"),
+      },
+    }
   );
 };
 
@@ -31,7 +38,16 @@ const update = (id, payload) => {
   });
 };
 
+const changeStatus = (id, payload) => {
+  return instance.put(`${APIs.ORDERS}/${id}/status`, payload, {
+    headers: {
+      access_token: getToken("access_token"),
+    },
+  });
+};
+
 const OrderServices = {
+  changeStatus,
   create,
   list,
   getById,

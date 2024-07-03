@@ -21,6 +21,13 @@ import Checkout from "./pages/user/Checkout";
 
 // Routing check
 import PrivateRoute from "./components/PrivateRoute";
+import Orders from "./pages/admin/orders/Orders";
+import Order from "./pages/admin/orders/Order";
+import Movies from "./pages/admin/movies/Movies";
+import Movie from "./pages/admin/movies/Movie";
+import Profile from "./pages/admin/users/Profile";
+import User from "./pages/admin/users/User";
+import Users from "./pages/admin/users/Users";
 
 const App = () => {
   return (
@@ -48,42 +55,40 @@ const App = () => {
           <Route
             path="orders"
             element={
-              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+              <PrivateRoute component={<Orders />} sysRoles={["admin"]} />
             }
           />
           <Route
             path="orders/:id"
             element={
-              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+              <PrivateRoute component={<Order />} sysRoles={["admin"]} />
             }
           />
           <Route
             path="movies"
             element={
-              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+              <PrivateRoute component={<Movies />} sysRoles={["admin"]} />
             }
           />
           <Route
             path="movies/:id"
             element={
-              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+              <PrivateRoute component={<Movie />} sysRoles={["admin"]} />
             }
           />
           <Route
             path="users"
             element={
-              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
+              <PrivateRoute component={<Users />} sysRoles={["admin"]} />
             }
           />
           <Route
             path="users/:id"
-            element={
-              <PrivateRoute component={<Dashboard />} sysRoles={["admin"]} />
-            }
+            element={<PrivateRoute component={<User />} sysRoles={["admin"]} />}
           />
           <Route
             path="profile"
-            element={<PrivateRoute component={<Dashboard />} />}
+            element={<PrivateRoute component={<Profile />} />}
           />
         </Route>
         <Route path="*" element={<ErrorPage />}></Route>
