@@ -1,6 +1,8 @@
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { BsPencilSquare } from "react-icons/bs";
 
-const CTable = ({ header = [], data = [] }) => {
+const CTable = ({ header = [], data = [], edit }) => {
   return (
     <Table striped bordered hover>
       <thead>
@@ -21,7 +23,13 @@ const CTable = ({ header = [], data = [] }) => {
                 {header.map((key, index) => {
                   return <td key={index}>{item[key]}</td>;
                 })}
-                <td>{/* Something remaining */}</td>
+                <td>
+                  {edit && (
+                    <Link to={edit.concat("/", item?.id || item?._id)}>
+                      <BsPencilSquare />
+                    </Link>
+                  )}
+                </td>
               </tr>
             );
           })

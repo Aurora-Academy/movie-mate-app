@@ -31,33 +31,71 @@ const create = async (payload) => {
 
 const getById = async (id) => {
   const result = await orderModel.aggregate([
-    {
-      $match: {
-        id,
+    [
+      {
+        $match: {
+          id,
+        },
       },
-    },
-    {
-      $lookup: {
-        from: "users",
-        localField: "buyer",
-        foreignField: "_id",
-        as: "buyer",
+      {
+        $lookup: {
+          from: "movies",
+          localField: "products.movie",
+          foreignField: "_id",
+          as: "movieDetails",
+        },
       },
-    },
-    {
-      $unwind: {
-        path: "$buyer",
-        preserveNullAndEmptyArrays: false,
+      {
+        $addFields: {
+          products: {
+            $map: {
+              input: "$products",
+              as: "product",
+              in: {
+                $mergeObjects: [
+                  "$$product",
+                  {
+                    movie: {
+                      $arrayElemAt: [
+                        "$movieDetails",
+                        {
+                          $indexOfArray: ["$products", "$$product"],
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        },
       },
-    },
-    {
-      $project: {
-        "buyer.password": false,
-        "buyer.roles": false,
-        "buyer.isActive": false,
-        "buyer.isEmailVerified": false,
+      {
+        $unset: "movieDetails",
       },
-    },
+      {
+        $lookup: {
+          from: "users",
+          localField: "buyer",
+          foreignField: "_id",
+          as: "buyer",
+        },
+      },
+      {
+        $unwind: {
+          path: "$buyer",
+          preserveNullAndEmptyArrays: false,
+        },
+      },
+      {
+        $project: {
+          "buyer.password": false,
+          "buyer.roles": false,
+          "buyer.isActive": false,
+          "buyer.isEmailVerified": false,
+        },
+      },
+    ],
     //TODO Project for aggregating movies
   ]);
   return result[0];

@@ -143,7 +143,6 @@ const generateEmailToken = async (payload) => {
     const otp = generateOtp();
     const updatedUser = await userModel.updateOne({ _id: user?._id }, { otp });
     if (!updatedUser) throw new Error("Something went wrong");
-    console.log({ otp });
     eventEmitter.emit("emailVerification", email, otp);
   }
   return true;

@@ -18,7 +18,11 @@ const list = (limit, page) => {
 };
 
 const getById = (slug) => {
-  return instance.get(`${APIs.ORDERS}/${slug}`);
+  return instance.get(`${APIs.ORDERS}/${slug}`, {
+    headers: {
+      access_token: getToken("access_token"),
+    },
+  });
 };
 
 // Admin Routes
@@ -39,7 +43,7 @@ const update = (id, payload) => {
 };
 
 const changeStatus = (id, payload) => {
-  return instance.put(`${APIs.ORDERS}/${id}/status`, payload, {
+  return instance.patch(`${APIs.ORDERS}/${id}/status`, payload, {
     headers: {
       access_token: getToken("access_token"),
     },

@@ -34,8 +34,16 @@ export const getOrder = createAsyncThunk("orders/getOrder", async (id) => {
 
 export const changeOrderStatus = createAsyncThunk(
   "orders/changeOrderStatus",
-  async (id, payload) => {
+  async ({ id, payload }) => {
     const res = await OrderServices.changeStatus(id, payload);
+    return res?.data;
+  }
+);
+
+export const updateOrder = createAsyncThunk(
+  "orders/updateOrder",
+  async ({ id, payload }) => {
+    const res = await OrderServices.update(id, payload);
     return res?.data;
   }
 );
@@ -95,6 +103,17 @@ const orderSlice = createSlice({
         state.loading = true;
       })
       .addCase(changeOrderStatus.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(updateOrder.fulfilled, (state, action) => {
+        state.loading = false;
+        state.order = action.payload.data;
+      })
+      .addCase(updateOrder.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateOrder.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
